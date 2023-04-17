@@ -19,6 +19,7 @@
     <script>
         const   canvasEl = document.querySelector("canvas"),
                 canvasCtx = canvasEl.getContext("2d")
+        const   lineThickness = 15
 
         function setup()
         {
@@ -27,11 +28,16 @@
         }
         function draw()
         {
-            lineThickness = 15
+            //draw the board
             canvasCtx.fillStyle = "#286047"
             canvasCtx.fillRect(0,0, window.innerWidth, window.innerHeight)
+            //draw the line in the middle
             canvasCtx.fillStyle = "#FFF"
             canvasCtx.fillRect((window.innerWidth-lineThickness)/2, 0, lineThickness, window.innerHeight)
+            //draw the line the left racket
+            canvasCtx.fillRect(10, 100, lineThickness, 200)
+            //draw the line the right racket
+            canvasCtx.fillRect(window.innerWidth-lineThickness-10,100, lineThickness, 200)
         }
         setup()
         draw()
