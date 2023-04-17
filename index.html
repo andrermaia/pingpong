@@ -38,6 +38,10 @@
             canvasCtx.fillRect(10, 100, lineThickness, 200)
             //draw the line the right racket
             canvasCtx.fillRect(window.innerWidth-lineThickness-10,100, lineThickness, 200)
+            //draw the ball
+            canvasCtx.beginPath()
+            canvasCtx.arc(200, 300, 20, 0, 2 * Math.PI, false)
+            canvasCtx.fill()
         }
         setup()
         draw()
