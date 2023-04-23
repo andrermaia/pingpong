@@ -1,3 +1,8 @@
+const MINSPEED = 5
+const MAXSPEED = 15
+const MINSPEEDCOMPUTER = 4.5
+const MAXSPEEDCOMPUTER = 11
+
 const   canvasEl = document.querySelector("canvas"),
         canvasCtx = canvasEl.getContext("2d"),
         gapX = 10
@@ -52,7 +57,7 @@ const rightPaddle =
     y: 100,
     w: line.w,
     h: 200,
-    speed: 5,
+    speed: MINSPEEDCOMPUTER,
     _move: function()
     {
         if(this.y + this.h/2 < ball.y + ball.r)
@@ -81,7 +86,7 @@ const ball =
     x: 370,
     y: 120,
     r: 20,
-    speed: 5,
+    speed: MINSPEED,
     directionX: 1,
     directionY: 1,
     _calcPosition: function()
@@ -131,8 +136,14 @@ const ball =
     {
         this.x = field.w/2
         this.y = field.h/2
-        this._speedUp()
-        rightPaddle.speedUp()
+        if(this.speed < MAXSPEED)
+        {
+            this._speedUp()
+        }
+        if(rightPaddle.speed < MAXSPEEDCOMPUTER)
+        {
+            rightPaddle.speedUp()
+        }
     },
     _move: function()
     {
